@@ -1,10 +1,10 @@
 # vk-streaming
 
-1. Что делает?
+## Что делает?
 
 Возвращает объекты обещаний (Promises) axios'а для взаимодействия с методами Streaming API.
 
-2. Как использовать?
+## Как использовать?
 
 ```javascript
 import Read, { getServer, Rules } from 'vk-streaming';
