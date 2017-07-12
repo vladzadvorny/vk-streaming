@@ -1,6 +1,6 @@
 {
   "name": "vk-streaming",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "main.js",
   "description": "Streaming API module for vk.com",
   "repository": "https://github.com/vladzadvorny/vk-streaming.git",

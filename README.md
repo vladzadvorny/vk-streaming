@@ -5,7 +5,9 @@
 Возвращает объекты обещаний (Promises) axios'а для взаимодействия с методами Streaming API.
 
 ## Как использовать?
-
+```
+yarn add vk-streaming
+```
 ```javascript
 import Read, { getServer, Rules } from 'vk-streaming';
 
