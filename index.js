@@ -1,14 +1,14 @@
-import axios from 'axios';
-import querystring from 'querystring';
-import WebSocket from 'ws';
+const axios = require('axios');
+const querystring = require('querystring');
+const WebSocket = require('ws');
 
-export const getServer = serviceToken =>
+const getServer = serviceToken =>
   axios.post(
     'https://api.vk.com/method/streaming.getServerUrl',
     querystring.stringify({ access_token: serviceToken })
   );
 
-export class Rules {
+class Rules {
   constructor(server, key) {
     this.server = server;
     this.key = key;
@@ -41,7 +41,7 @@ export class Rules {
   }
 }
 
-export default class Read {
+class Read {
   constructor(server, key) {
     this.server = server;
     this.key = key;
@@ -51,3 +51,5 @@ export default class Read {
     return new WebSocket(`wss://${this.server}/stream?key=${this.key}`);
   }
 }
+
+module.exports = { getServer, Rules, Read };

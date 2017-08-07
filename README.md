@@ -2,14 +2,14 @@
 
 ## Что делает?
 
-Возвращает объекты обещаний (Promises) axios'а для взаимодействия с методами Streaming API.
+Возвращает объекты Promises axios'а для взаимодействия с методами Streaming API VK.
 
 ## Как использовать?
 ```
-yarn add vk-streaming
+npm install vk-streaming
 ```
 ```javascript
-import Read, { getServer, Rules } from 'vk-streaming';
+const { getServer, Rules, Read } = require('vk-streaming');
 
 // Получение сервера и ключа
 getServer('cc968...c25cc')

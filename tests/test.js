@@ -1,4 +1,4 @@
-var streaming = require('../dist/main.js');
+var streaming = require('../index');
 var expect = require('chai').expect;
 
 it('Get server', () => {
