@@ -1,12 +1,13 @@
-const axios = require('axios');
-const querystring = require('querystring');
+const rp = require('request-promise');
 const WebSocket = require('ws');
 
 const getServer = serviceToken =>
-  axios.post(
-    'https://api.vk.com/method/streaming.getServerUrl',
-    querystring.stringify({ access_token: serviceToken })
-  );
+  rp({
+    uri: 'https://api.vk.com/method/streaming.getServerUrl',
+    method: 'POST',
+    formData: { access_token: serviceToken },
+    json: true
+  });
 
 class Rules {
   constructor(server, key) {
@@ -15,28 +16,30 @@ class Rules {
   }
 
   get() {
-    return axios.get(`https://${this.server}/rules?key=${this.key}`);
+    return rp({ uri: `https://${this.server}/rules?key=${this.key}` });
   }
 
   add(rule) {
-    return axios({
-      method: 'post',
-      url: `https://${this.server}/rules?key=${this.key}`,
+    return rp({
+      method: 'POST',
+      uri: `https://${this.server}/rules?key=${this.key}`,
       headers: { 'Content-Type': 'application/json' },
-      data: {
+      body: {
         rule: rule
-      }
+      },
+      json: true
     });
   }
 
   delete(tag) {
-    return axios({
-      method: 'delete',
+    return rp({
+      method: 'DELETE',
       url: `https://${this.server}/rules?key=${this.key}`,
       headers: { 'Content-Type': 'application/json' },
-      data: {
+      body: {
         tag: tag.toString()
-      }
+      },
+      json: true
     });
   }
 }

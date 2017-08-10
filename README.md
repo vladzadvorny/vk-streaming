@@ -2,7 +2,7 @@
 
 ## Что делает?
 
-Возвращает объекты Promises axios'а для взаимодействия с методами Streaming API VK.
+Позволяет взаимодействовать с методами Streaming API VK.
 
 ## Как использовать?
 ```
@@ -22,22 +22,16 @@ const rules = new Rules(
   'key'
 );
 
-rules
-  .get()
-  .then(data => data.data.rules)
+rules.get()
   .then(console.log);
 
-rules
-.delete(1) 
-  .then(data => data.data)
+rules.delete(1)
   .then(console.log);
 
-rules
-  .add({
-    value: 'hello',
-    tag: '1'
+rules.add({
+    value: 'hello3',
+    tag: '3'
   })
-  .then(data => data.data)
   .then(console.log);
 
 // Чтение потока
