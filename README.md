@@ -5,15 +5,15 @@
 Позволяет взаимодействовать с методами Streaming API VK.
 
 ## Как использовать?
-```
-npm install vk-streaming
+```sh
+$ npm install vk-streaming
 ```
 ```javascript
 const { getServer, Rules, Read } = require('vk-streaming');
 
 // Получение сервера и ключа
 getServer('cc968...c25cc')
-  .then(data => data.data.response)
+  .then(data => data.response)
   .then(console.log);
 
 // Получение, удаление и добавление правил
