@@ -29,8 +29,8 @@ rules.delete(1)
   .then(console.log);
 
 rules.add({
-    value: 'hello3',
-    tag: '3'
+    value: 'hello',
+    tag: '1'
   })
   .then(console.log);
 
@@ -42,6 +42,5 @@ const read = new Read(
 
 read.stream()
   .onmessage = event => console.log(JSON.parse(event.data).event);
-// Так как возвращается объект WebSocket, все события см. в его документации
+// Все события WebSocket см. в его документации
  ```
-
