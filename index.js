@@ -1,11 +1,14 @@
 const rp = require('request-promise');
 const WebSocket = require('ws');
 
-const getServer = serviceToken =>
+const getServer = (serviceToken, apiVersion) =>
   rp({
     uri: 'https://api.vk.com/method/streaming.getServerUrl',
     method: 'POST',
-    formData: { access_token: serviceToken },
+    formData: {
+        access_token: serviceToken,
+        v: apiVersion || '5.92'
+    },
     json: true
   });
 
